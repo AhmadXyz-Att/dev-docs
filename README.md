@@ -1,24 +1,24 @@
-"dev-docs"
+Fuku Nexora API
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:09090b,50:312e81,100:7c3aed&text=DEV%20DOCS&fontColor=ffffff&fontSize=65&fontAlignY=45&desc=PUBLIC%20API%20DOCUMENTATION&descAlignY=65&descSize=16" width="100%" alt="Dev Docs Banner"/>
+  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:09090b,50:312e81,100:7c3aed&text=FUKU%20NEXORA&fontColor=ffffff&fontSize=55&fontAlignY=45&desc=PUBLIC%20API%20DOCUMENTATION&descAlignY=65&descSize=16" width="100%" alt="Fuku Nexora API Banner"/>
 </p><p align="center">
   <b>Explore. Integrate. Build.</b>
   <br/>
-  Developer documentation, API references, endpoint guides, and code examples for developers.
+  Public API documentation for developers, creators, and builders.
 </p><p align="center">
   <a href="https://api.fuku.eu.cc">
-    <img src="https://img.shields.io/badge/Public%20API-Visit%20API-7c3aed?style=for-the-badge&logo=fastapi&logoColor=white" alt="Public API"/>
+    <img src="https://img.shields.io/badge/API-Fuku%20Nexora-7c3aed?style=for-the-badge&logo=fastapi&logoColor=white" alt="Fuku Nexora API"/>
   </a>
-  <img src="https://img.shields.io/badge/Documentation-Developer%20Friendly-6366f1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Documentation"/>
-  <img src="https://img.shields.io/badge/Author-AhmadXyz-18181b?style=for-the-badge&logo=github&logoColor=white" alt="Author"/>
-</p>---
+  <img src="https://img.shields.io/badge/Docs-Developer%20Friendly-6366f1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Developer Documentation"/>
+  <img src="https://img.shields.io/badge/Author-AhmadXyz-18181b?style=for-the-badge&logo=github&logoColor=white" alt="Author AhmadXyz"/>
+</p>Overview
 
-Overview
+Fuku Nexora API is a public API project designed to provide developers with a centralized way to explore API services and integrate them into their own applications.
 
-Dev Docs is a centralized documentation project for public API services. It helps developers understand API endpoints, request parameters, response formats, and integration examples.
+This documentation serves as a reference for endpoint usage, request parameters, response formats, and integration examples.
 
-Whether you're building a website, a Node.js application, a WhatsApp bot, or other developer tools, this documentation aims to make API integration easier and more accessible.
+Whether you're building a website, a Node.js application, a WhatsApp bot, or other developer tools, Fuku Nexora aims to make API integration easier and more accessible.
 
 Public API
 
@@ -26,31 +26,31 @@ Base URL
 
 https://api.fuku.eu.cc
 
-Visit the API:
+API Access: "https://api.fuku.eu.cc" (https://api.fuku.eu.cc)
 
-"api.fuku.eu.cc" (https://api.fuku.eu.cc)
-
-The base URL is provided as the entry point for the API. Available endpoints, HTTP methods, authentication requirements, and usage limits should be documented based on the actual API implementation.
+Use the base URL when constructing requests. Available endpoints, authentication requirements, parameters, and rate limits must be checked against the actual API implementation.
 
 Features
 
 - API Reference — Documentation for available endpoints.
-- Request Parameters — Details about required and optional parameters.
+- Request Parameters — Details about required and optional inputs.
 - JSON Responses — Examples of response structures.
 - Code Examples — Integration snippets for JavaScript and Node.js.
 - Developer Guides — Instructions for using documented services.
-- Public API Access — A central entry point for exploring API services.
+- Public API Access — A central entry point for exploring available services.
 
 Quick Start
 
 JavaScript
 
-Use the native Fetch API to make HTTP requests.
+Use the native Fetch API to make requests to a documented endpoint.
 
 const BASE_URL = "https://api.fuku.eu.cc";
 
 async function requestAPI(endpoint) {
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const url = new URL(endpoint, BASE_URL);
+
+  const response = await fetch(url, {
     method: "GET",
     headers: {
       Accept: "application/json"
@@ -58,7 +58,9 @@ async function requestAPI(endpoint) {
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP Error: ${response.status}`);
+    throw new Error(
+      `HTTP Error: ${response.status} ${response.statusText}`
+    );
   }
 
   return response.json();
@@ -77,11 +79,11 @@ async function main() {
 
 main();
 
-«"/your-endpoint" is a placeholder, not a verified API endpoint. Replace it with a valid endpoint from the actual API documentation.»
+«"/your-endpoint" is a placeholder, not a verified endpoint. Replace it with a valid path from the actual API documentation.»
 
 Example Response
 
-The following is an illustrative JSON structure, not a confirmed response from the API.
+The following JSON is illustrative and does not represent a verified response from Fuku Nexora API.
 
 {
   "success": true,
@@ -89,34 +91,34 @@ The following is an illustrative JSON structure, not a confirmed response from t
   "data": {}
 }
 
-Actual response fields may differ depending on the endpoint.
+Actual response fields depend on the endpoint implementation.
 
 Endpoint Reference
 
-Endpoint documentation should include:
+Each documented endpoint should include the following information:
 
 Property| Description
 Endpoint| Actual request path
-Method| HTTP method such as "GET" or "POST"
+Method| HTTP method, such as "GET" or "POST"
 Parameters| Required and optional inputs
 Authentication| Whether credentials are required
 Response| Actual JSON response format
 Errors| Possible HTTP status codes and error messages
 
-No endpoint paths are listed here until they can be verified against the actual API.
+Endpoint paths will be added after they have been verified against the actual API.
 
 Example cURL Request
 
 curl -X GET "https://api.fuku.eu.cc/your-endpoint" \
   -H "Accept: application/json"
 
-Replace the placeholder with a real endpoint and provide any required parameters or authentication headers.
+Replace the placeholder with a valid endpoint and add any required parameters or authentication headers.
 
 Usage Guidelines
 
-1. Read the relevant endpoint documentation before making requests.
-2. Use the correct HTTP method and parameters.
-3. Handle network failures and unsuccessful HTTP responses.
+1. Read the endpoint documentation before making requests.
+2. Use the correct HTTP method and required parameters.
+3. Handle network errors and unsuccessful HTTP responses.
 4. Respect the API provider's rate limits and usage policies.
 5. Never expose private API keys or credentials in public repositories.
 
@@ -128,13 +130,8 @@ Author
   Developer · API Enthusiast
   <br/>
   Building tools and documentation for developers.
-</p>Links
-
-- Public API: "api.fuku.eu.cc" (https://api.fuku.eu.cc)
-- Repository: "dev-docs"
-
----
-
-<p align="center">
-  <sub>Made for developers, by AhmadXyz.</sub>
+</p><p align="center">
+  <a href="https://api.fuku.eu.cc">Fuku Nexora API</a>
+  <br/>
+  <sub>Built for developers, by AhmadXyz.</sub>
 </p>
